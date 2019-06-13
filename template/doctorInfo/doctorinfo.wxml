@@ -1,0 +1,25 @@
+<template name="doctorinfo">
+    <view class='doctorinfo-box' wx:for="{{doctorList}}" wx:key='key'>
+        <view class='InfoBox'>
+            <view>
+              
+                <image mode="aspectFill" class="userPic db" src="{{(item.avatar != '') ? item.avatar : '../../../images/head.png'}}"></image>
+
+            </view>
+            <view>
+                <view>
+                    <text>{{item.name}}</text>
+                    <text>{{item.position}}</text>
+                </view>
+                <view>
+                    <text>{{item.hospital}}</text>
+                    <text>{{item.department}}</text>
+                </view>
+                <view>
+                    <text>{{item.time}}</text>
+                </view>
+            </view>
+
+        </view>
+    </view>
+</template>

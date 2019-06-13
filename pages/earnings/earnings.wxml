@@ -1,0 +1,45 @@
+<import src="eamingsList.wxml"></import>
+<import src="specification.wxml"></import>
+<scroll-view style='height:100%;width:100%;'>
+    <view class="fastTitleBox clearfix" wx:if="{{cooperation==''}}">
+        <text class="fastTitle db fl">您的医生资质尚未认证,认证后收益可提现~</text>
+        <text class="fastBtn db fr" bindtap="goCertification">去认证</text>
+    </view>
+    <view class='eamings-header'>
+        <image class='moneyBg' src='../../images/mayMoner-bg.jpg'></image>
+        <view class='eamings-item-txt fontSize1'>
+            可提现收益
+        </view>
+        <view class='eamings-item-num'>
+            ￥{{profit.sure}}
+        </view>
+        <view class='eamings-item-btn'>
+            <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">立即提现</button>
+        </view>
+        <view class='eamings-item-month'>
+            <view class='eamings-item-month-left'>
+                <text class='fontSize1' style='margin-right:20rpx'>{{month < 10 ? '0'+month:month}}月收益</text>
+                <text class='fontSize2'>￥{{profit.month}}</text>
+            </view>
+            <view class='eamings-item-month-right'>
+                <text class='fontSize1' style='margin-right:20rpx'>累计收益</text>
+                <text class='fontSize2'>￥{{profit.total}}</text>
+            </view>
+            <view class='eamings-state' bindtap='check'>提现说明</view>
+        </view>
+    </view>
+    <view class='eamings-list'>
+        <view class='eamings-list-title' wx:if='{{profitInfoList.length>0}}'>
+            <image src='../../images/icon/money_icon.png'></image>
+            <text>收益明细</text>
+        </view>
+        <template is="depositList" data='{{profitInfoList:profitInfoList}}' wx:if='{{profitInfoList.length>0}}'></template>
+        <view class='nomsg' wx:if='{{!flag}}'>
+            <image src='../../images/nomsg-img.png'></image>
+            <view style='margin-top:88rpx;font-size:28rpx;color:#666666'>您还没有任何收益奖励哟~</view>
+            <button class='goaudioList' bindtap='goaudioList'>去答题赚收益</button>
+        </view>
+    </view>
+</scroll-view>
+
+<template is="specification" wx:if='{{showToast}}'></template>

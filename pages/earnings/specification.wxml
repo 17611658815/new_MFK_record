@@ -1,0 +1,29 @@
+<template name="specification">
+    <view class='toast-box'>
+        <view class='toast-box-content'>
+            <view class='toast-box-content-title'>
+                提现说明
+            </view>
+            <view class='toast-box-content-item'>
+                1.每月20日为提现日；
+            </view>
+            <view class='toast-box-content-item'>
+                2.提现金额：满200元可进行提现；
+            </view>
+            <view class='toast-box-content-item'>
+                3.医生资质认证后，收益方可提现；
+            </view>
+            <view class='toast-box-content-item'>
+                4.到账实效为1-3个工作日，最快次日到账；
+            </view>
+            <view class='toast-box-content-item'>
+               5.如有疑问，请致电联系民福康客服；
+            </view>
+            <view class='toast-box-content-item'>
+               电话：010-59231588
+            </view>
+            <view class='toast-box-content-btn' catchtap='check'>知道了</view>
+            <image catchtap='check' class='delicon' src='../../images/icon/del_icon.png'></image>
+        </view>
+    </view>
+</template>

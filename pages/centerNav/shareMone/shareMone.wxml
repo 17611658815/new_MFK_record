@@ -1,0 +1,24 @@
+<import src="../../../template/centerNavheader/centerNavheader.wxml"></import>
+<import src="../../../template/noMoney/noMoney.wxml"></import>
+<import src="../../../template/showToast.wxml"></import>
+<import src="shareList.wxml"></import>
+<scroll-view style='height:100%;width:100%;'>
+    <view class='mayvideo-header'>
+        <template is="centerNavheader" data='{{textArr:textArr,showExplain:showExplain,invitationNum:invitationNum,profit:profit}}'></template>
+    </view>
+    <view class='share-content'>
+        <view style='font-size:32rpx;color:#333333;margin-top:40rpx;font-weight:500' wx:if="{{questionList.length>0}}">已通过审核的问题</view>
+        <!-- <template is="shareList" wx:if="{{questionList.length>0}}" data='{{questionList:questionList}}'></template> -->
+        <view class='answerList-content' wx:for='{{questionList}}' wx:if="{{questionList.length>0}}" wx:key='key'>
+            <view class='answerList-content-title'>
+                {{item.title}}
+            </view>
+            <view class='answerList-content-timer'>
+                <text>{{item.time}}</text>
+            </view>
+        </view>
+        <template is="noMoney" data='{{fn:fn,text:"您的好友还未答题哟~",btnShow:false}}' wx:if="{{flag}}"></template>
+    </view>
+</scroll-view>
+
+<template is="showToast" wx:if='{{showToast}}'></template>
